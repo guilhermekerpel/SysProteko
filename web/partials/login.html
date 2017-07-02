@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+            <form class="form-horizontal" >
+                <div class="control-group" >
+                    <label class="control-label" for="loginUser">Usuário</label>
+                        <div class="controls">
+                            <input id="loginUser" type="text" ng-model="objeto.usuario" placeholder="Digite o seu e-mail..." />
+                        </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="senha">Senha</label>
+                        <div class="controls">
+                             <input id="senha" type="password" ng-model="objeto.senha" placeholder="Digite a sua senha..." />
+                        </div>
+                </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="checkbox"><input type="checkbox" /> Lembrar senha</label>
+                                <button class="btn" ng-click="login.validarAcesso()" type="submit" >Acessar</button>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>

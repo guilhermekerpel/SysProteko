@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <h1>Cadastro de Unidades</h1>
+        <form role="form">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <label for="id">
+                            Numero da Unidade:
+                        </label>
+                        <input type="text" ng-model="objeto.id" class="form-control" id="nome"/>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <label for="nome">
+                            Nome:
+                        </label>
+                        <input type="text" ng-model="objeto.nome" class="form-control" id="nome"/>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <label for="endereco">
+                            Endereço:
+                        </label>
+                        <input type="text" ng-model="objeto.endereco" class="form-control" id="endereco"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <label for="telefone">
+                            Telefone:
+                        </label>
+                        <input type="text" ng-model="objeto.telefone" class="form-control" id="telefone" />
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <label for="cnpj">
+                            CNPJ:
+                        </label>
+                        <input type="text" ng-model="objeto.cnpj" mask="00.000.000/0000-00" class="form-control" id="cnpj"/>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <label for="inscricaoMunicipal">
+                            Inscrição Municipal:
+                        </label>
+                        <input type="text" ng-model="objeto.inscricaoMunicipal" mask="000-0000000" class="form-control" id="inscricaoMunicipal"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <button type="button" ng-click="salvar()" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Salvar</button>
+                <a class="btn btn-warning" href="#/tecnico-lista" role="button"><span class="glyphicon glyphicon-menu-left"></span> Cancelar</a>
+            </div>
+        </div>
+    </div>
+</div>

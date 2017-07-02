@@ -1,0 +1,180 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>Listagem de Usuários</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <form>
+                    <div class="form-inline">
+                        <input type="text" class="form-control" ng-model="pesquisarChamado" />
+                        <a class="btn btn-default" href="#/chamado-novo" role="button"><span class="glyphicon glyphicon-pencil"></span> Novo...</a>
+                    </div>
+                </form>		
+                <hr>		
+            </div>
+        </div>
+
+        
+        <form  role="form">
+            <div class="form-group" >
+                <div class="row" ng-show="editarRegistroChamado">
+                    
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <label for="idChamado">Nº Chamado:</label>
+                        <input type="text" ng-model="objeto.nChamado" ng-disabled="true" class="form-control" id="idChamado" ng-block = "true"/>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <label for="dataAbertura">Data de Abertura:</label>
+                        <input type="" ng-model="objeto.dtAbertura" class="form-control" id="dataAbertura" ng-disabled="true" />
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <label for="assunto">Assunto:</label>
+                        <input type="text" ng-model="objeto.assunto" class="form-control" id="assunto"/>
+                    </div>
+
+                    
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <!-- <label for="unidades" ng-init="listarUnidade()">Unidade:</label> -->
+                        <label for="unidades" ng-init="buscarUnidadeChamado()">Unidade:</label>
+                            <select id="unidade" unique class="form-control"
+                                    ng-model="selecionarUnidade.unidadeSelecionada"> 
+                                <option ng-repeat="unidade in selecionarUnidade.unidadeDisponivel" value="{{unidade}}" >{{unidade.id}} - {{unidade.nome}}</option>
+                            </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="row" ng-show="editarRegistroChamado">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <label for="Departamento">Departamento:</label>
+                        <select name="sigleSelect" id="status" ng-model="objeto.status" unique class="form-control">
+                            <option value="">Por favor selecione</option>
+                            <option value="Aberto">Aberto</option>
+                            <option value="Em atendimento">Em atendimento</option>
+                            <option value="Cancelado">Cancelado</option>
+                            <option value="Fechado">Fechado</option>
+                        </select>
+                        
+                    </div>
+                    
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <label for="tecnico" ng-init="listarTecnicos()">Técnico</label>
+                             <select id="unidade" unique class="form-control"
+                                ng-model="selecionarTecnico.tecnicoSelecionado">
+                                 <option ng-repeat="tecnico in selecionarTecnico.tecnicoDisponivel" value="{{tecnico}}">{{tecnico.nome}}</option>
+                            </select>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <label for="Departamento">Departamento:</label>
+                        <select name="sigleSelect" id="departamento" ng-model="objeto.departamento" unique class="form-control">
+                            <option value="">Por favor selecione</option>
+                            <option value="tecnico">Técnico</option>
+                            <option value="eletrico">Elétrico</option>
+                            <option value="civil">Cívil</option>
+                        </select>
+                        
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row" ng-show="editarRegistroChamado">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <label for="problemaRelatado">Problema Relatado:</label>
+                        <textarea ng-model="objeto.problemaRelatado" rows="5" class="form-control" id="problemaRelatado" ng-disabled="true"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="row" ng-show="editarRegistroChamado">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <label for="solucao">Solução:</label>
+                        <textarea ng-model="objeto.solucao" rows="5" class="form-control" id="solucao" placeholder="Ex.: Efetuada a troca da Cancela"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row" ng-show="editarRegistroChamado">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <label for="email">E-mail Solicitante:</label>
+                        <input type="email" ng-model="objeto.emailSolicitante" class="form-control" id="email" ng-disabled="true" />
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <label for="fone">Contato:</label>
+                        <input type="text" ng-model="objeto.contato" class="form-control" id="fone" ng-disabled="true"/>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <label for="dtConclusao">Data Conclusão:</label>
+                        <input type="text" ng-model="objeto.dtConclusao" class="form-control" id="dtConclusao" placeholder="Ex.: XX/XX/XXXX"/>
+                    </div>
+                    <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <button type="button" ng-click="cancelarEdicao()" class="btn btn-warning"><span class="glyphicon glyphicon-menu-left"></span> Cancelar</button>
+                    <button type="button" ng-click="alterar()" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Salvar Edição</button>
+                    </div>
+                    </div>    
+                </div>
+            </div>
+        </form>
+        
+        <div class="row" ng-hide="editarRegistroChamado">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                <table class="table table-striped table-hover" ng-init="listar()">
+                    <thead>
+                        <tr>
+                            <th>Nº Chamado</th>
+                            <th>Abertura</th>
+                            <th>Assunto</th>
+                            <th>Unidade</th>
+                            <th>Status</th>
+                            <th>Técnico</th>
+                            <th>Departamento</th>
+                            <th>Problema Relatado</th>
+                            <th>Solução</th>
+                            <th>Email</th>
+                            <th>Contato</th>
+                            <th>Conclusão</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="objeto in chamados.lista | orderBy:'nChamado'" ng-if="existemDados">
+                            <td>{{objeto.nChamado}}</td>
+                            <td>{{objeto.dtAbertura}}</td>
+                            <td>{{objeto.assunto}}</td>
+                            <td>{{objeto.unidade.id_unidade}}</td>
+                            <td>{{objeto.status}}</td>
+                            <td>{{objeto.tecnico.id_tecnico.nome}}</td>
+                            <td>{{objeto.departamento}}</td>
+                            <td>{{objeto.problemarelatado}}</td>
+                            <td>{{objeto.solucao}}</td>
+                            <td>{{objeto.emailSolicitante}}</td>
+                            <td>{{objeto.contato}}</td>
+                            <td>{{objeto.dtConclusao}}</td>
+                            <th>
+                            
+                                <br>    
+                                <button type="button" ng-click="consultar(objeto.nChamado)" class="btn btn-sm btn-default" >
+                                    <span class="glyphicon glyphicon-edit"></span> Iniciar Atendimento
+                                </button>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

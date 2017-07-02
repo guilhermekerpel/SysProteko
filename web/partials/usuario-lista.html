@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>Listagem de Usuários</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <form>
+                    <div class="form-inline">
+                        <input type="text" class="form-control" ng-model="pesquisaUsuario" />
+                        <a class="btn btn-default" href="#/usuario-novo" role="button"><span class="glyphicon glyphicon-pencil"></span> Novo...</a>
+                    </div>
+                </form>		
+                <hr>		
+            </div>
+        </div>
+
+        <div class="row" ng-show="editarRegistroCliente">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h4>Edição de Usuário</h4>
+                <form role="form">
+                    <div class="form-group">					 
+                        <label for="id">
+                            ID Usuário:
+                        </label>
+                        <input type="text" ng-model="objeto.id" class="form-control" id="id" readonly="readonly" />
+                    </div>
+
+                    <div class="form-group">					 
+                        <label for="nome">
+                            Nome:
+                        </label>
+                        <input type="text" ng-model="objeto.nome" class="form-control" id="nome" />
+                    </div>
+
+                    <div class="form-group">					 
+                        <label for="email">
+                            Email:
+                        </label>
+                        <input type="text" ng-model="objeto.email" class="form-control" id="email" />
+                    </div>
+
+                    <div class="form-group">					 
+                        <label for="fone">
+                            Telefone:
+                        </label>
+                        <input type="text" ng-model="objeto.telefone" mask="(99) 9999.9999" class="form-control" id="fone" />
+                    </div>
+
+                </form>
+                <button type="button" ng-click="cancelarEdicao()" class="btn btn-warning"><span class="glyphicon glyphicon-menu-left"></span> Cancelar</button>
+                <button type="button" ng-click="alterar()" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Salvar Edição</button>
+            </div>
+        </div>
+
+        <div class="row" ng-hide="editarRegistroCliente">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                <table class="table table-striped table-hover" ng-init="listar()">
+                    <thead>
+                        <tr>
+                            <th>ID Cliente</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="objeto in clientes.lista | orderBy:'nome'" ng-if="existemDados">
+                            <td>{{objeto.id}}</td>
+                            <td>{{objeto.nome}}</td>
+                            <td>{{objeto.email}}</td>
+                            <td>{{objeto.telefone}}</td>
+                            <th>
+<!--                                <button type="button" ng-click="excluir(objeto)" class="btn btn-sm btn-danger">
+                                    <span class="glyphicon glyphicon-remove"></span> Excluir
+                                </button> -->
+                                <button type="button" ng-click="consultar(objeto.id)" class="btn btn-sm btn-default">
+                                    <span class="glyphicon glyphicon-edit"></span> Editar
+                                </button>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>Listagem de Técnicos</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <form>
+                    <div class="form-inline">
+                        <input type="text" class="form-control" ng-model="pesquisaTecnico"/>
+                        <a class="btn btn-default" href="#/tecnico-novo" role="button"><span class="glyphicon glyphicon-pencil"></span> Novo...</a>
+                    </div>
+                </form>		
+                <hr>		
+            </div>
+        </div>
+
+        <div class="row" ng-show="editarRegistroTecnico">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h4>Edição de Técnico</h4>
+                <form role="form">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <label for="nome">
+                                    Nome:
+                                </label>
+                                <input type="text" ng-model="objeto.nome" class="form-control" id="nome" />
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <label for="departamento">
+                                    Departamento:
+                                </label>
+                                <input type="text" ng-model="objeto.departamento" class="form-control" id="departamento"/>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <label for="funcao">
+                                    Função:
+                                </label>
+                                <input type="text" ng-model="objeto.funcao" class="form-control" id="funcao"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <label for="email">
+                                    Email:
+                                </label>
+                                <input type="text" ng-model="objeto.email" class="form-control" id="email" />
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <label for="telefone">
+                                    Telefone:
+                                </label>
+                                <input type="text" ng-model="objeto.telefone" mask="(99) 9999.9999" class="form-control" id="telefone"/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <button type="button" ng-click="cancelarEdicao()" class="btn btn-warning"><span class="glyphicon glyphicon-menu-left"></span> Cancelar</button>
+                <button type="button" ng-click="alterar()" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Salvar Edição</button>
+            </div>
+        </div>
+
+        <div class="row" ng-hide="editarRegistroTecnico">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                <table class="table table-striped table-hover" ng-init="listar()">
+                    <thead>
+                        <tr>
+                            <th>ID Tecnico</th>
+                            <th>Nome</th>
+                            <th>Departamento</th>
+                            <th>Função</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="objeto in tecnicos.lista | orderBy:'nome'" ng-if="existemDados">
+                            <td>{{objeto.id}}</td>
+                            <td>{{objeto.nome}}</td>
+                            <td>{{objeto.departamento}}</td>
+                            <td>{{objeto.funcao}}</td>
+                            <td>{{objeto.email}}</td>
+                            <td>{{objeto.telefone}}</td>
+                            <th>
+<!--                                <button type="button" ng-click="excluir(objeto)" class="btn btn-sm btn-danger">
+                                    <span class="glyphicon glyphicon-remove"></span> Excluir
+                                </button> -->
+                                <button type="button" ng-click="consultar(objeto.id)" class="btn btn-sm btn-default">
+                                    <span class="glyphicon glyphicon-edit"></span> Editar
+                                </button>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

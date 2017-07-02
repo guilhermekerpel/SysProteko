@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <h1>Cadastro de Equipamentos</h1>
+        <form role="form">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <label for="nSerie">
+                            Número de Série:
+                        </label>
+                        <input type="text" ng-model="objeto.nSerie" mask="9WT3-7AZA-PBC6-2QBZ-MRLD" class="form-control" id="nSerie"/>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <label for="tipo">
+                            Tipo de Equipamento:
+                        </label>
+                        <input type="text" ng-model="objeto.tipo" mask="IMPRESSORA" class="form-control" id="tipo"/>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <label for="marca">
+                            Marca:
+                        </label>
+                        <input type="text" ng-model="objeto.marca" mask="EPSON" class="form-control" id="marca"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <label for="modelo">
+                            Modelo:
+                        </label>
+                        <input type="text" ng-model="objeto.email" mask="L220" class="form-control" id="email" />
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <label for="patrimonio">
+                            Patrimônio:
+                        </label>
+                        <input type="text" ng-model="objeto.patrimonio" mask="15883"  class="form-control" id="patrimonio"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <button type="button" ng-click="salvar()" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Salvar</button>
+                <a class="btn btn-warning" href="#/tecnico-lista" role="button"><span class="glyphicon glyphicon-menu-left"></span> Cancelar</a>
+            </div>
+        </div>
+    </div>
+</div>

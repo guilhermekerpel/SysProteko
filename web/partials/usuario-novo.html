@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <h1>Cadastro de Usuário</h1>
+        <form role="form">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <label for="nome">
+                            Nome
+                        </label>
+                        <input type="text" ng-model="objeto.nome" class="form-control" id="nome"/>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <label for="email">
+                            Email
+                        </label>
+                        <input type="text" ng-model="objeto.email" class="form-control" id="email"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <label for="fone">
+                            Telefone
+                        </label>
+                        <input type="text" ng-model="objeto.telefone" mask="(99) 9999.9999" class="form-control" id="fone"/>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <label for="senha">
+                            Senha
+                        </label>
+                        <input type="text" ng-model="objeto.senha" class="form-control" id="senha" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <button type="button" ng-click="salvar()" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Salvar</button>
+                    <a class="btn btn-warning" href="#/usuario-lista" role="button"><span class="glyphicon glyphicon-menu-left"></span> Cancelar</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

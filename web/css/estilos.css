@@ -1,0 +1,48 @@
+*{
+    font-family: helvetica;
+    margin: 0px;
+}
+
+.row{
+    margin: 0;
+    padding: 0;
+}
+
+#btnMenu:hover{
+    background-color: orange;
+}
+
+#conteudo{
+    padding-top: 75px;
+    padding-bottom: 75px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0;
+}
+
+#cabecalho{
+    background-color: #D1D1D1;
+}
+
+#nomeEmpresa{
+    font-size: 18pt;
+    font-family: Impact;
+    color: #204d74;
+}
+
+#info{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: orange;
+    font-size: 18pt;
+    text-align: center;
+}
+
+#paragrafo{
+    padding-bottom: 30px;
+}
+
+#infoParagrafo{
+    text-align: justify;
+}
+
